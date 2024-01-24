@@ -1,0 +1,101 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: navy;
+            height: 60px;
+        }
+
+        nav li {
+            float: right;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover {
+            background-color: #333;
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 50px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .main-content h1 {
+            font-size: 36px;
+            color: #0099cc;
+            margin-bottom: 20px;
+        }
+
+        .main-content p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li>
+            <form id="signup-form" action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Sign Up</button>
+            </form>
+        </li>
+        <li>
+            <form id="login-form" action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Login</button>
+            </form>
+        </li>
+        <li><a href="{% url 'help' %}">Help</a></li>
+        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+    </ul>
+</nav>
+
+<div class="main-content">
+    <h1>Contact Us</h1>
+    <p>
+        We value your feedback and inquiries. If you have any questions, suggestions,
+        or concerns related to our society and its activities, feel free to get in touch
+        with us. Our dedicated team is here to assist you. You can reach out to us by
+        filling out the contact form below or by using the provided contact details.
+        We appreciate your interest in our society and look forward to hearing from you.
+    </p>
+    <!-- Display some random information here -->
+</div>
+
+</body>
+</html>

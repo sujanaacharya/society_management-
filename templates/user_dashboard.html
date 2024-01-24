@@ -1,0 +1,109 @@
+
+
+<div>
+  <form id="logout-form" action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Logout">
+  </form>
+</div>
+
+<h1>Welcome to Your Dashboard, {{ user.username }}!</h1>
+
+<div>
+  <h2>General Announcements:</h2>
+  <ul>
+    {% for announcement in general_announcements %}
+      <li>
+        <strong>{{ announcement.title }}</strong> - {{ announcement.content }} (Posted by: {{ announcement.posted_by.user.username }})
+        <ul>
+          {% for comment in all_announcement_comments %}
+            {% if comment.related_announcement == announcement %}
+              <li><strong>{{ comment.posted_by.user.username }}</strong>: {{ comment.text }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        <form method="post" action="{% url 'post_comment' announcement.id %}">
+          {% csrf_token %}
+          <input type="text" name="text" placeholder="Write a comment...">
+          <input type="submit" value="Post Comment">
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div>
+  <h2>General Events:</h2>
+  <ul>
+    {% for event in general_events %}
+      <li>
+        {{ event.title }} - {{ event.description }}
+        <ul>
+          {% for comment in event.comments.all %}
+            <li><strong>{{ comment.posted_by.user.username }}</strong>: {{ comment.text }}</li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% if show_my_activities %}
+<!-- <div>
+  <h2>My Activities:</h2>
+  <ul>
+    {% for announcement in user_announcements %}
+      <li>
+        <strong>{{ announcement.title }}</strong> - {{ announcement.content }} (Posted by: {{ announcement.posted_by.user.username }})
+        <ul>
+          {% for comment in all_announcement_comments %}
+            {% if comment.related_announcement == announcement %}
+              <li><strong>{{ comment.posted_by.user.username }}</strong>: {{ comment.text }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div>
+  <h2>My Events:</h2>
+  <ul>
+    {% for event in user_events %}
+      <li>{{ event.title }} - {{ event.description }}</li>
+    {% endfor %}
+  </ul>
+</div> -->
+
+<div>
+  <h2>Comments Posted by You:</h2>
+  <ul>
+    {% for comment in user_comments %}
+      <li>{{ comment.text }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% if user.is_authenticated and not user.is_superuser %}
+<div>
+  <h2>Post Announcement:</h2>
+  <form method="post" action="{% url 'post_announcement' %}">
+    {% csrf_token %}
+    <label for="title">Title:</label>
+    <input type="text" name="title" required>
+    <label for="content">Content:</label>
+    <textarea name="content" required></textarea>
+    <input type="submit" value="Post Announcement">
+  </form>
+</div>
+{% endif %}
+
+<script>
+  document.getElementById("logout-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    this.submit(); // Submit the form programmatically
+  });
+</script>
+

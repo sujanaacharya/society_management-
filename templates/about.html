@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Society</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body.about {
+            background-image: url('community.jpeg'); /* Change to your background image */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .blurred-box {
+            backdrop-filter: blur(10px); /* Increase the blur value */
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(240, 190, 214, 0.5); /* For better contrast */
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #0099cc;
+        }
+
+        .large-text {
+            font-size: 28px; /* Adjust the size as needed */
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #eee;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        /* Additional styles for navigation bar */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            
+            background-color: navy;
+            height: 60px;
+        }
+
+        nav li {
+            float: right;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body class="about">
+    <nav>
+        <ul>
+            <li>
+                <form id="signup-form" action="{% url 'signup' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Sign Up</button>
+                </form>
+            </li>
+            <li>
+                <form id="login-form" action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Login</button>
+                </form>
+            </li>
+            <li><a href="{% url 'help' %}">Help</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="blurred-box">
+            <h1>ABOUT OUR COMMUNITY</h1>
+            <p class="large-text">
+                The Paradise is situated at the Northern part of California. But in Sociology, Society refers not to a group of people but to the complex pattern of the norms or interaction or relationships that arise among them. People exist only as an agent of social relationships. Mere congregation of individuals does not constitute society. Rather society refers to the complicated network of social relationships by which every individual is interrelated with his fellowmen. Hence Society is abstract, not concrete, in nature. We can’t touch it but feel it. Because society resides in the minds of individuals.
+            </p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Our Society. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

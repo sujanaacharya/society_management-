@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: navy;
+            height: 60px;
+        }
+
+        nav li {
+            float: right;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover {
+            background-color: #333;
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 50px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .main-content h1 {
+            font-size: 36px;
+            color: #0099cc;
+            margin-bottom: 20px;
+        }
+
+        .main-content p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: navy;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            background-color: #333;
+        }
+
+        .query-form {
+            margin-top: 20px;
+        }
+
+        .query-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            margin-top: 10px;
+            background-color: navy;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li>
+            <form id="signup-form" action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Sign Up</button>
+            </form>
+        </li>
+        <li>
+            <form id="login-form" action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Login</button>
+            </form>
+        </li>
+        <li><a href="{% url 'help' %}">Help</a></li>
+        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+    </ul>
+</nav>
+
+<div class="main-content">
+    <h1>Help & FAQs</h1>
+    
+    <div class="tab-container">
+        <div class="tab active">General</div>
+        <div class="tab">Membership</div>
+        <div class="tab">Events</div>
+    </div>
+    
+    <div class="query-form">
+        <textarea class="query-input" placeholder="Type your query here..."></textarea>
+        <button class="submit-btn">Submit</button>
+    </div>
+</div>
+
+</body>
+</html>

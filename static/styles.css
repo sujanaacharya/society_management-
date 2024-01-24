@@ -1,0 +1,323 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set the minimum height of the viewport to 100% */
+html, body {
+    height: 100%;
+}
+
+/* Create a flex container for the entire page */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content container */
+main {
+    flex: 1; /* Grow to fill available space */
+    padding: 20px;
+}
+
+/* Sticky footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+/* Styles for navigation buttons */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Additional styles for home page */
+#home {
+    background-image: url('society.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.society-name {
+    font-size: 4rem;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.8);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    color: maroon;
+}
+
+/* Additional styles for login form */
+.auth-form {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(0, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.auth-form h2 {
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.auth-form label {
+    display: block;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.auth-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Additional styles for about page */
+body.about {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url('community.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+}
+
+#about {
+    flex-grow: 1;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 1px;
+    margin: 20px;
+}
+
+#about h2,
+#about p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Styles for form layout */
+form {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 5px;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    height: 250px;
+}
+
+/* Make input fields narrower */
+#complaints .form-group input,
+#complaints .form-group textarea,
+#feedback .form-group input,
+#feedback .form-group textarea {
+    width: 50%; /* Adjust the width as needed */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Additional CSS for the Event Page */
+body {
+    background-color: #fce4ec; /* Faint pink background color */
+    position: relative;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Light white background color */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.event {
+    flex-basis: calc(50% - 10px); /* Half the container width minus spacing */
+    background-color: #d9f0c0e5;
+    border: 1px solid #dddddd00;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Add some spacing between events */
+    display: flex;
+    flex-direction: column;
+}
+
+.event h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 0;
+}
+
+.event img {
+    width: 100%; /* Set the width to 100% of the container */
+    max-height: 500px; /* Adjust the max-height as needed */
+    object-fit: contain; /* Maintain aspect ratio and fit within the container */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(180, 11, 11, 0);
+}
+
+.event p {
+    color: #666;
+    line-height: 1.5;
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+.event-date {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007BFF;
+    margin-bottom: 5px;
+}
+
+.watermark-text {
+    font-size: 60px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* Additional CSS for the Members Page */
+#members {
+    display: flex; /* Use flex layout to arrange form and profiles side by side */
+    align-items: flex-start; /* Align items at the top of the flex container */
+    justify-content: space-between; /* Create space between form and profiles */
+    padding: 20px;
+}
+
+/* Styles for the Add Member Form */
+#addMemberForm {
+    width: 80%; /* Adjust the width as needed */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#addMemberForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#addMemberForm input,
+#addMemberForm textarea {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+
+}
+
+#addMemberForm button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#addMemberForm button:hover {
+    background-color: #0056b3;
+}
+
+/* Core Member Profiles */
+#core-member-profiles {
+    width: 65%; /* Adjust the width as needed */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}

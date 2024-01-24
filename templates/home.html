@@ -1,0 +1,93 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background-image: url('templates/society.jpg');  */
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: navy;
+            height: 60px; 
+        }
+
+        nav li {
+            float: right; 
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px 16px; 
+            text-decoration: none;
+        }
+
+        nav li a:hover {
+            background-color: #333;
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .main-content h1 {
+            font-size: 36px;
+            color: #0099cc;
+            margin-bottom: 20px;
+        }
+
+        .main-content p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li>
+            <form id="signup-form" action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Sign Up</button>
+            </form>
+        </li>
+        <li>
+            <form id="login-form" action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Login</button>
+            </form>
+        </li>
+        <li><a href="{% url 'help' %}">Help</a></li>
+        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+    </ul>
+</nav>
+
+<div class="main-content">
+    <h1>Welcome to Our Society</h1>
+    <h2>
+        Paradise Residence Best Choice for Peace and Happiness.
+    </h2>
+</div>
+
+</body>
+</html>
+
